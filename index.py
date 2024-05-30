@@ -10,9 +10,15 @@ if res.status_code == 200:
     weather = result['weather'][0]['main']
     temp = result['main']['temp']
     feel = result['main']['feels_like']
-    info = [city_name,weather,temp,feel]
-    for i in info:
-        print(i)
+    info = {
+        "city" : city_name,
+        "weather" : weather,
+        "temperature" : temp,
+        "feels like " : feel
+    }
+    for field, value in info.items():
+        print(f"{field}: {value}")
+   
 else:
     print("error fetching the city!!")
     
